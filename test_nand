@@ -1,0 +1,64 @@
+#! /usr/bin/vvp
+:ivl_version "10.1 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x5589db45d3f0 .scope module, "test_nand" "test_nand" 2 2;
+ .timescale -9 -9;
+v0x5589db47dc20_0 .var "a", 0 0;
+v0x5589db47dcc0_0 .var "b", 0 0;
+RS_0x7f70fbeed0a8 .resolv tri, L_0x5589db47dfd0, L_0x5589db47e130, L_0x5589db47e220;
+v0x5589db47dd90_0 .net8 "out", 0 0, RS_0x7f70fbeed0a8;  3 drivers, strength-aware
+S_0x5589db45d570 .scope module, "p1" "my_nand" 2 6, 3 1 0, S_0x5589db45d3f0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "a"
+    .port_info 1 /INPUT 1 "b"
+    .port_info 2 /OUTPUT 1 "out"
+L_0x5589db47df30 .functor BUFT 1, C8<771>, C4<0>, C4<0>, C4<0>;
+L_0x5589db47dfd0 .functor PMOS 1, L_0x5589db47df30, v0x5589db47dc20_0, C4<0>, C4<0>;
+L_0x5589db47e130 .functor PMOS 1, L_0x5589db47df30, v0x5589db47dcc0_0, C4<0>, C4<0>;
+L_0x5589db47e220 .functor NMOS 1, L_0x5589db47e290, v0x5589db47dc20_0, C4<0>, C4<0>;
+L_0x5589db47de90 .functor BUFT 1, C8<770>, C4<0>, C4<0>, C4<0>;
+L_0x5589db47e290 .functor NMOS 1, L_0x5589db47de90, v0x5589db47dcc0_0, C4<0>, C4<0>;
+v0x5589db45d790_0 .net "a", 0 0, v0x5589db47dc20_0;  1 drivers
+v0x5589db47d7b0_0 .net "b", 0 0, v0x5589db47dcc0_0;  1 drivers
+v0x5589db47d870_0 .net8 "gnd", 0 0, L_0x5589db47de90;  1 drivers, strength-aware
+v0x5589db47d910_0 .net8 "out", 0 0, RS_0x7f70fbeed0a8;  alias, 3 drivers, strength-aware
+v0x5589db47d9d0_0 .net8 "vdd", 0 0, L_0x5589db47df30;  1 drivers, strength-aware
+v0x5589db47dae0_0 .net8 "w1", 0 0, L_0x5589db47e290;  1 drivers, strength-aware
+    .scope S_0x5589db45d3f0;
+T_0 ;
+    %vpi_call 2 8 "$dumpfile", "test_nand.vcd" {0 0 0};
+    %vpi_call 2 9 "$dumpvars", 32'sb00000000000000000000000000000000, S_0x5589db45d3f0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5589db47dc20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5589db47dcc0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5589db47dc20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5589db47dcc0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5589db47dc20_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0x5589db47dcc0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5589db47dc20_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0x5589db47dcc0_0, 0, 1;
+    %delay 5, 0;
+    %vpi_call 2 23 "$display", "Done" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "test_nand.v";
+    "nand.v";

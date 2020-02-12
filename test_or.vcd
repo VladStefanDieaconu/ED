@@ -1,0 +1,44 @@
+$date
+	Wed May 22 17:28:23 2019
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module test_or $end
+$var wire 1 ! out $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$scope module p1 $end
+$var wire 1 " a $end
+$var wire 1 # b $end
+$var wire 1 $ gnd $end
+$var wire 1 ! out $end
+$var wire 1 % vdd $end
+$var wire 1 & w1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0&
+1%
+0$
+0#
+0"
+0!
+$end
+#5
+1!
+z&
+1#
+#10
+0&
+0#
+1"
+#15
+z&
+1#
+#20
